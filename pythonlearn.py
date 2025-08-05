@@ -12,3 +12,4 @@ print("3. a^2-b^2")
 # Thân chương trình
 while True:
     luachon = input("Nhập lựa chọn của bạn: ")
+    print("xxx")
