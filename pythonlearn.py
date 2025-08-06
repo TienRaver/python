@@ -24,9 +24,9 @@ while True:
         print("Nhập sai lựa chọn")
         break
     luachon1 = input("Bạn có muốn tiếp tục không (Y/N): ")
-    if luachon1 == "Y" or "y":
+    if luachon1 == "Y" or luachon1 == "y":
         continue
-    else:
+    elif luachon1 == "N" or luachon1 == "n":
         print("Chào tạm biệt!")
         break
 #print("Chào tạm biệt!")
