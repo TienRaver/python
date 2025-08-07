@@ -10,6 +10,7 @@ class sinhvien:
         self.khoa = khoa
 # Kết nối với SQL
 import pyodbc
+from datetime import datetime
 conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
                       'Server=DESKTOP-50M8QJP\\SQLEXPRESS;'
                         'Database=university;'
@@ -24,12 +25,21 @@ def themSV(sinhvien):
                       sinhvien.quequan,sinhvien.nienkhoa,sinhvien.khoa)
         conn.commit()
         print("Thêm thành công")
-        for i in cursor.fetchall():
+        for i in cursor.fetchall(): # In tất cả sinh viên trong danh sách ra
             print(i)
     except Exception as e:
         print("Error: ", e)
-# Gán lớp và gọi function
+# Gán lớp sinhvien
 sinhvien1 = sinhvien(
     int(input("ID: ")),
-    input("Tên sinh viên: ")
+    input("Tên sinh viên: "),
+    datetime.strptime(input("Ngày sinh: "),"%d/%m/%Y"),
+    input("Giới tính Nam/Nữ/Không xác định: "),
+    input("Quê quán: "),
+    input("Niên khóa: "),
+    input("Khoa: ")
 )
+# Gọi function thêm sinh viên và đóng kết nối SQL
+themSV(sinhvien1)
+cursor.close()
+conn.close()
