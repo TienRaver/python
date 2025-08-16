@@ -9,7 +9,7 @@ cursor = conn.cursor()
 def xoaSV(maSV):
     try:
         sql = "DELETE FROM thongtinSV WHERE maSV=?" # ? dac trung cho cho giu tham so
-        cursor.execute(sql,(maSV,)) # (maSV,) de dang tuple thi moi truyen duoc tham so vao SQL
+        cursor.execute(sql,(maSV,)) # (maSV,) tuple / [maSV] list truyen tham so
         conn.commit()
         print("Xoa thanh cong")
     except Exception as e:
