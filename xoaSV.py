@@ -5,7 +5,7 @@ conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
                         'DATABASE=university;'
                         'Trusted_Connection=yes;')
 cursor = conn.cursor()
-# Ham xoa sinh vien
+#Func xoa sinh vien
 def xoaSV(maSV):
     try:
         sql = "DELETE FROM thongtinSV WHERE maSV=?" # ? dac trung cho cho giu tham so
@@ -13,9 +13,21 @@ def xoaSV(maSV):
         conn.commit()
         print("Xoa thanh cong")
     except Exception as e:
-        print("Error:", e)
-# Goi ham xoaSV
+        print("Error: ", e)
+# Func in danh sach sinh vien
+def danhsachSV():
+    try:
+        sql = "SELECT * FROM thongtinSV"
+        cursor.execute(sql)
+        conn.commit()
+        rows = cursor.fetchall()
+        for row in rows:
+            print(f"Ma SV: {row.maSV}, Ho ten: {row.tenSV}, Ngay sinh: {row.ngaysinh}, Que quan: {row.quequan}")
+    except Exception as e:
+        print("Error: ",e) 
+# Goi func xoaSV + danhsachSV
 xoaSV(int(input("Nhap ma sinh vien can xoa: ")))
+danhsachSV()
 # Dong ket noi
 cursor.close()
 conn.close()

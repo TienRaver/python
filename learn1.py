@@ -1,2 +1,2 @@
-x = "Cena"
-print(type(x))
+number = float("20")
+print(isinstance(number, float))

@@ -20,7 +20,7 @@ def themSV(sinhvien):
         # In ra danh sach sinh vien
         print("Them sinh vien thanh cong")
     except Exception as e:
-        print("Error:", e)
+        print("Error: ", e)
 # Tao function in danh sach sinh vien
 def danhsachSV():
     try:
@@ -31,7 +31,7 @@ def danhsachSV():
         for row in rows:
             print(f"Ma SV: {row.maSV}, Ten SV: {row.tenSV}, Ngay sinh: {row.ngaysinh}, Que quan: {row.quequan}")
     except Exception as e:
-        print("Error:", e)
+        print("Error: ", e)
 # Tao doi tuong sinh vien
 from datetime import datetime # Nhap thu vien thoi gian
 sinhvien1 = sinhvien(input("Nhap ten sinh vien: "),
