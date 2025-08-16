@@ -21,10 +21,17 @@ def themSV(sinhvien):
         print("Them sinh vien thanh cong")
     except Exception as e:
         print("Error:", e)
-# Tao func danhsachSV
+# Tao function in danh sach sinh vien
 def danhsachSV():
-    for i in cursor.fetchall():
-            print(i)
+    try:
+        sql = "SELECT * FROM thongtinSV"
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        print("Danh sach sinh vien:")
+        for row in rows:
+            print(f"Ma SV: {row.maSV}, Ten SV: {row.tenSV}, Ngay sinh: {row.ngaysinh}, Que quan: {row.quequan}")
+    except Exception as e:
+        print("Error:", e)
 # Tao doi tuong sinh vien
 from datetime import datetime # Nhap thu vien thoi gian
 sinhvien1 = sinhvien(input("Nhap ten sinh vien: "),
