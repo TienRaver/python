@@ -11,7 +11,7 @@ conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
                         'DATABASE=university;'
                         'Trusted_Connection=yes;')
 cursor = conn.cursor()
-# Ham them sinh vien
+# Tao func themSV
 def themSV(sinhvien):
     try:
         sql = "insert into thongtinSV(tenSV,ngaysinh,quequan) values(?,?,?)"
@@ -19,18 +19,21 @@ def themSV(sinhvien):
         conn.commit() # Luu thay doi vao database
         # In ra danh sach sinh vien
         print("Them sinh vien thanh cong")
-        for i in cursor.fetchall():
-            print(i)
     except Exception as e:
         print("Error:", e)
+# Tao func danhsachSV
+def danhsachSV():
+    for i in cursor.fetchall():
+            print(i)
 # Tao doi tuong sinh vien
-from datetime import datetime
+from datetime import datetime # Nhap thu vien thoi gian
 sinhvien1 = sinhvien(input("Nhap ten sinh vien: "),
                      #Chuyen doi dinh dang ngay thang
                      datetime.strptime(input("Nhap ngay sinh (dd/mm/yyyy): "),"%d/%m/%Y").date(),
                     input("Nhap que quan: "))
-# Goi ham them sinh vien
+# Goi func themSV va danhsachSV
 themSV(sinhvien1)
+danhsachSV()
 # Dong ket noi
 cursor.close()
 conn.close()
