@@ -1,2 +1,2 @@
-fruit = ["apple","tomato","lemon"]
-print(fruit[1])
+flower = {"Rose":"Red","Tuylip":"Blue","Sunflower":"Yellow"}
+print(flower.values())
