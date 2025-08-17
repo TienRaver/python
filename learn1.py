@@ -1,2 +1,3 @@
-number = float("20")
-print(isinstance(number, float))
+from enum import Enum
+class state(Enum):
+    
