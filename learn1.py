@@ -1,3 +1,2 @@
-from enum import Enum
-class state(Enum):
-    
+fruit = ["apple","tomato","lemon"]
+print(fruit[1])
