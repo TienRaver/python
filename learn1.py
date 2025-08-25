@@ -1,2 +1,2 @@
-flower = {"Rose":"Red","Tuylip":"Blue","Sunflower":"Yellow"}
-print(flower.values())
+link1 = str(input("Nhap chuoi: ")) + "/Sample1"
+print(link1)
